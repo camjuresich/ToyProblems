@@ -12,20 +12,26 @@ Help Johnny by writing a function,
 that takes the amount of handshakes and returns the minimal amount of people needed to perform these handshakes 
 (a pair of farmers handshake only once). */
 
-function getParticipants(handshakes){
-    const persons = [];
-    // you do not know how many people are required
-    // so you start eith an empty array.
-    // if count === hand shakes return a
-    // making persons a number would probably make more sense
-    
-    // persons = 0
-    // while count < persons run loop
-    1 
-    2 1 2 
-    3 - 1 2, 2 3, 1 3 
-    4 - 1 2, 2 3, 3 4, 1 4
-  
-    console.log(ass)
-    return handshakes
+const getParticipants = function(handshakes) { debugger
+	if (handshakes <= 0) {
+		return 0;
+	} 
+  if (handshakes === 1) {
+    return 2;
   }
+	let currHandshakes = 0;
+	const persons = [0];
+	let lastPerson = 1;
+	while (currHandshakes < handshakes) {
+		for (let i = 0; i < persons.length; i++) {
+			for (let j = lastPerson; j < persons.length; j++) {
+				currHandshakes++;
+			}
+		}
+		lastPerson = persons.length;
+    
+		persons.push(persons.length)
+	}
+	
+	return persons.length
+}
