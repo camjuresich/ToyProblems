@@ -12,26 +12,32 @@ Help Johnny by writing a function,
 that takes the amount of handshakes and returns the minimal amount of people needed to perform these handshakes 
 (a pair of farmers handshake only once). */
 
-const getParticipants = function(handshakes) { debugger
+const getParticipants = function(handshakes) {
 	if (handshakes <= 0) {
 		return 0;
 	} 
   if (handshakes === 1) {
     return 2;
   }
+                                              
 	let currHandshakes = 0;
 	const persons = [0];
 	let lastPerson = 1;
+	// const shakeCombos = {};
 	while (currHandshakes < handshakes) {
+	  persons.push(persons.length)
+	  lastPerson = persons[persons.length-1];
 		for (let i = 0; i < persons.length; i++) {
 			for (let j = lastPerson; j < persons.length; j++) {
-				currHandshakes++;
+				if (i !== j) {
+					currHandshakes++;
+					// shakeCombos[`${i},${j}`] ? shakeCombos[`${i},${j}`]++ : shakeCombos[`${i},${j}`] = 1;					
+				}
+
 			}
 		}
-		lastPerson = persons.length;
     
-		persons.push(persons.length)
-	}
+  }
 	
 	return persons.length
 }
